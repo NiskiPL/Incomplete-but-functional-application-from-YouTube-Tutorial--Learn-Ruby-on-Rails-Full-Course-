@@ -1,0 +1,37 @@
+<div id="friends">
+<table class="table table-danger table-striped-columns table-bordered border-dark"
+
+
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Instagram</th>
+        
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+      <tbody>
+      <% @friends.each do |friend| %>
+      <% if friend.user == current_user %>
+        <tr>
+          <td><%= friend.first_name %></td>
+          <td><%= friend.last_name %></td>
+          <td><%= friend.email %></td>
+          <td><%= friend.phone %></td>
+          <td><%= friend.instagram %></td>
+          
+
+          <td colspan="3">
+            <%= link_to "Show this friend", friend, class:"btn btn-danger" %>
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New friend", new_friend_path, class: "btn btn-danger" %>
+</div>
